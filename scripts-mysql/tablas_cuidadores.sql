@@ -1,0 +1,55 @@
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
+--
+-- Host: localhost    Database: tablas
+-- ------------------------------------------------------
+-- Server version	8.0.38
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cuidadores`
+--
+
+DROP TABLE IF EXISTS `cuidadores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cuidadores` (
+  `ID` int NOT NULL,
+  `IDCUIDADOR_GUARDERIA` int NOT NULL,
+  `NOMBRE` varchar(255) DEFAULT NULL,
+  `TELEFONO` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ID_GUARDERIA_idx` (`IDCUIDADOR_GUARDERIA`),
+  CONSTRAINT `IDCUIDADOR_GUARDERIA` FOREIGN KEY (`IDCUIDADOR_GUARDERIA`) REFERENCES `guarderias` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cuidadores`
+--
+
+LOCK TABLES `cuidadores` WRITE;
+/*!40000 ALTER TABLE `cuidadores` DISABLE KEYS */;
+INSERT INTO `cuidadores` VALUES (1,1,'Maria Gómez','3123456789'),(2,2,'Juan Pérez','3101234567'),(3,3,'Ana López','3112345678'),(4,4,'Pedro Martínez','3123456780'),(5,5,'Isabel Ramírez','3134567890'),(6,6,'Carlos García','3145678901'),(7,7,'Diana González','3156789012'),(8,8,'Andrés Vargas','3167890123'),(9,9,'Carolina Sandoval','3178901234'),(10,10,'Luis Jiménez','3189012345'),(11,11,'Sandra Moreno','3190123456'),(12,12,'Alberto Rodríguez','31012345678'),(13,13,'Patricia Flores','31123456789'),(14,14,'Ricardo Hernández','31234567801'),(15,15,'Laura Arias','31345678902'),(16,16,'José Castro','31456789013'),(17,17,'Adriana Romero','31567890124'),(18,18,'David Molina','31678901235'),(19,19,'Jessica Ortiz','31789012346'),(20,20,'Alejandro Sánchez','31890123457'),(21,15,'Mario Gonzalez','3189014677');
+/*!40000 ALTER TABLE `cuidadores` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-07-18 19:30:55
